@@ -1,7 +1,8 @@
 <template>
-  <div class="home">
-    <el-button type="primary" size="small" @click="goto('/backtop1')">跳转顶部1</el-button>
-    <el-button type="primary" size="small" @click="goto('/backtop2')">跳转顶部2</el-button>
+  <div>
+    <el-button type="primary" size="small" @click="goto('/backTop1')">去往页面1</el-button>
+    <el-button type="primary" size="small" @click="goto('/backTop2')">去往页面2</el-button>
+    <el-button type="primary" size="small" @click="goto('/login')">去往登录页</el-button>
   </div>
 </template>
 
