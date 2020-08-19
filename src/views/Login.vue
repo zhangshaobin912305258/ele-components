@@ -1,8 +1,12 @@
 <template>
   <div class="login">
-    <h1>普通登录组件</h1>
+    <h1>普通登录</h1>
     <div class="account">
       <account-login :rule-form="ruleForm" :rules="rules" @submit="submit" @errHandle="errHandle"></account-login>
+    </div>
+    <h1>手机号登录</h1>
+    <div class="phone">
+      <phone-login :rule-form="phoneForm" @submit="submit" @errHandle="errHandle" @sendCode="sendCode"></phone-login>
     </div>
   </div>
 </template>
@@ -43,15 +47,23 @@ export default {
             trigger: 'blur'
           }
         ]
+      },
+      phoneForm: {
+        phone: '',
+        code: '',
+        countdown: 30
       }
     }
   },
   methods:{
     submit() {
-      this.$message.success("提交成功")
+      this.$message.success("提交成功");
     },
     errHandle(){
-      this.$message.error("表单填写有误,请检查")
+      this.$message.error("表单填写有误,请检查");
+    },
+    sendCode() {
+      this.$message.info("发送验证码成功");
     }
   }
 }
@@ -63,7 +75,7 @@ export default {
   margin-left: 30px;
 }
 
-.account {
+.account, .phone {
   width: 500px;
 }
 </style>
